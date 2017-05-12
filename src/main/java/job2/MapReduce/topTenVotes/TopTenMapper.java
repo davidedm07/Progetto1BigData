@@ -3,7 +3,7 @@ package job2.MapReduce.topTenVotes;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -23,7 +23,7 @@ public class TopTenMapper extends Mapper<LongWritable, Text,Text, ProductWritabl
 			String[] splittedLine = line.split("\t");
 			this.userId = new Text(splittedLine[2]);
 			this.product = new ProductWritable(new Text(splittedLine[1]), 
-					new IntWritable(Integer.parseInt(splittedLine[6])));
+					new DoubleWritable(Double.parseDouble(splittedLine[6])));
 			context.write(userId, product);
 		}
 	}

@@ -21,13 +21,13 @@ public class TopTenReducer extends Reducer<Text, ProductWritable, Text, Text>{
     protected void reduce(Text key, Iterable<ProductWritable> values, Context context)
             throws IOException, InterruptedException {
        
-        Map<String, Integer> prod2score = new TreeMap<String, Integer>();
+        Map<String, Double> prod2score = new TreeMap<String, Double>();
        
         for (ProductWritable product: values){
         	prod2score.put(product.getProductId().toString(), product.getScore().get());
         }
        
-        Map<String, Integer> sortedMap = sortByValues(prod2score);
+        Map<String, Double> sortedMap = sortByValues(prod2score);
        
         int counter = 0;
         ArrayList<String> result = new ArrayList<String>();

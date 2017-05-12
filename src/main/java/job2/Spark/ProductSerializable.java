@@ -53,7 +53,7 @@ public class ProductSerializable implements Serializable, Comparable<ProductSeri
 
 	@Override
 	public String toString() {
-		return "Product Id: " + this.productID.toString() + " Average Score: "  + this.averageScore.toString();
+		return "Product Id: " + this.productID.toString() + " Score: "  + this.averageScore.toString();
 	}
 
 	@Override 

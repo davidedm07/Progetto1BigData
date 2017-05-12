@@ -32,7 +32,7 @@ public class Job2_Spark {
 		//JavaPairRDD<String, Iterable<Tuple2<String,Double>>> result = topTenProducts.top5products().sortByKey();
 		//result.saveAsTextFile("/home/davide/Scrivania/risultato.txt");
 		//JavaRDD<String> output = topTenProducts.loadData();
-		output.map(x -> x._1 + "," + x._2).saveAsTextFile(args[1]);
+		output.map(x -> x._1 + "\t" + x._2).saveAsTextFile(args[1]);
 	}
 	
 	public JavaRDD<String> loadData() {

@@ -4,18 +4,18 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
 public class ProductWritable implements WritableComparable<ProductWritable>{
 
 	private Text productId = new Text();
-	private IntWritable score = new IntWritable();
+	private DoubleWritable score = new DoubleWritable();
 	
 	public ProductWritable() {}
 	
-	public ProductWritable(Text productId, IntWritable score) {
+	public ProductWritable(Text productId, DoubleWritable score) {
 		this.productId = productId;
 		this.score = score;
 	}
@@ -41,11 +41,11 @@ public class ProductWritable implements WritableComparable<ProductWritable>{
 		this.productId = productId;
 	}
 	
-	public IntWritable getScore() {
+	public DoubleWritable getScore() {
 		return score;
 	}
 	
-	public void setScore(IntWritable score) {
+	public void setScore(DoubleWritable score) {
 		this.score = score;
 	}
 
@@ -64,7 +64,8 @@ public class ProductWritable implements WritableComparable<ProductWritable>{
 	
 	@Override
 	public int compareTo(ProductWritable o) {
-		return this.score.get() - o.getScore().get();
+		Double d = this.score.get() - o.getScore().get();
+		return d.intValue();
 	}
 	
 	@Override
