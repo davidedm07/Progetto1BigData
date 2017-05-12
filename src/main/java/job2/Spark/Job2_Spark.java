@@ -1,22 +1,14 @@
 package job2.Spark;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.math.stat.descriptive.summary.Product;
-import org.apache.hadoop.io.DoubleWritable;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.hadoop.io.Text;
 import com.clearspring.analytics.util.Lists;
 
 import scala.Tuple2;
@@ -40,7 +32,7 @@ public class Job2_Spark {
 		//JavaPairRDD<String, Iterable<Tuple2<String,Double>>> result = topTenProducts.top5products().sortByKey();
 		//result.saveAsTextFile("/home/davide/Scrivania/risultato.txt");
 		//JavaRDD<String> output = topTenProducts.loadData();
-		output.map(x -> x._1 + "," + x._2).saveAsTextFile("/Users/antoniomartinelli/Desktop/risultato");
+		output.map(x -> x._1 + "," + x._2).saveAsTextFile(args[1]);
 	}
 	
 	public JavaRDD<String> loadData() {
