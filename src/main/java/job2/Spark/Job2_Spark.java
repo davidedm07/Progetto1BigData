@@ -66,7 +66,7 @@ public class Job2_Spark {
 			List<ProductSerializable> list = Lists.newArrayList(values);
 			Collections.sort(list);
 			Collections.reverse(list);
-			if (list.size() >= 5) {
+			if (list.size() >= 10) {
 				return list.subList(0, 10);
 			}
 			return list;
