@@ -42,8 +42,8 @@ public class Job1Spark implements Serializable {
 
 	public JavaRDD<String> loadData() {
 		SparkConf conf = new SparkConf()
-				.setAppName("Job1Spark");
-		//.setMaster("local[*]"); // here local mode. And * means you will use as much as you have cores.
+				.setAppName("Job1Spark")
+				.setMaster("local[*]");
 
 		@SuppressWarnings("resource")
 		JavaSparkContext sc = new JavaSparkContext(conf);
