@@ -21,8 +21,11 @@ public class Job3Spark {
 			System.err.println("File path or Output location not found!");
 			System.exit(1);
 		}
+		long start = System.currentTimeMillis();
 		Job3Spark job3 = new Job3Spark(args[0]);
 		job3.relatedUsers().repartition(1).sortByKey().saveAsTextFile(args[1]);
+		long end  = System.currentTimeMillis();
+		System.out.println("Time elapsed = " + (end-start)/ 1000 + " s");
 	}
 
 	public JavaRDD<String> loadData() {
@@ -34,7 +37,7 @@ public class Job3Spark {
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> fileLines = sc.textFile(this.pathToFile);
 		JavaRDD<String> lines = fileLines.flatMap(line -> Arrays.asList(line.split("\n")).iterator());
-
+		
 		return lines;		
 	}
 

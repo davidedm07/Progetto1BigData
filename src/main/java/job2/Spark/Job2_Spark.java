@@ -28,8 +28,11 @@ public class Job2_Spark {
 			System.exit(1);
 		}
 		Job2_Spark topTenProducts = new Job2_Spark(args[0]);
+		long start = System.currentTimeMillis();
 		JavaPairRDD<String, Iterable<ProductSerializable>> output = topTenProducts.userVotes().coalesce(1);
 		output.map(x -> x._1 + "\t" + x._2).saveAsTextFile(args[1]);
+		long end  = System.currentTimeMillis();
+		System.out.println("Time elapsed = " + (end-start)/ 1000 + " s");
 	}
 	
 	public JavaRDD<String> loadData() {

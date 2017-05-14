@@ -35,8 +35,11 @@ public class Job1Spark implements Serializable {
 			System.exit(1);
 		}
 		Job1Spark top5products = new Job1Spark(args[0]);
+		long start = System.currentTimeMillis();
 		JavaPairRDD<String, Iterable<Tuple2<String,Double>>> result = top5products.top5products().sortByKey();
+		long end  = System.currentTimeMillis();
 		result.saveAsTextFile(args[1]);
+		System.out.println("Time elapsed = " + (end-start)/ 1000 + " s");
 
 	}
 
