@@ -3,7 +3,6 @@ package job1.MapReduce.doubleMR;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.hadoop.io.DoubleWritable;
@@ -13,6 +12,7 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
 
 import job1.MapReduce.basic.ProductWritable;
 
+@SuppressWarnings("unused")
 public class Job2Reducer extends  Reducer<Text, ProductWritable, Text, Text>{
 
 	@Override
