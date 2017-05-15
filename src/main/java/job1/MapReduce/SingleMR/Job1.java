@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class Job1 {
 
 	public static void main(String[] args) throws Exception{
-		
+		long start = System.currentTimeMillis();
 		Job job1 = new Job(new Configuration(), "Job1");
 		job1.setJarByClass(Job1.class);
 		job1.setMapperClass(Job1Mapper.class);
@@ -25,6 +25,8 @@ public class Job1 {
 		job1.setOutputKeyClass(Text.class);
 		job1.setOutputValueClass(Text.class);
 		job1.waitForCompletion(true);
+		long end  = System.currentTimeMillis();
+		System.out.println("Time elapsed = " + (end-start)/ 1000 + " s");
 	}
 
 }
