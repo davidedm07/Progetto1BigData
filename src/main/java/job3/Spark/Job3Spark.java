@@ -30,8 +30,7 @@ public class Job3Spark {
 
 	public JavaRDD<String> loadData() {
 		SparkConf conf = new SparkConf()
-				.setAppName("Job1Spark")
-				.setMaster("local[*]");
+				.setAppName("Job1Spark");
 
 		@SuppressWarnings("resource")
 		JavaSparkContext sc = new JavaSparkContext(conf);

@@ -45,8 +45,7 @@ public class Job1Spark implements Serializable {
 
 	public JavaRDD<String> loadData() {
 		SparkConf conf = new SparkConf()
-				.setAppName("Job1Spark")
-				.setMaster("local[*]");
+				.setAppName("Job1Spark");
 
 		@SuppressWarnings("resource")
 		JavaSparkContext sc = new JavaSparkContext(conf);
