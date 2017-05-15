@@ -1,4 +1,4 @@
-package job1.MapReduce.doubleMR;
+package job1.MapReduce.DoubleMR;
 
 import java.io.IOException;
 import java.util.ArrayList;

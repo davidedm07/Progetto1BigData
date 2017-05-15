@@ -1,4 +1,4 @@
-package job1.MapReduce.doubleMR;
+package job1.MapReduce.DoubleMR;
 
 
 import org.apache.hadoop.conf.Configuration;
@@ -16,6 +16,7 @@ public class Job1DoubleMR {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
+		long start = System.currentTimeMillis();
 		Job job1 = new Job(new Configuration(), "Job1");
 		job1.setJarByClass(Job1DoubleMR.class);
 		job1.setMapperClass(Job1Mapper.class);
@@ -40,6 +41,8 @@ public class Job1DoubleMR {
 		job2.setOutputValueClass(Text.class);
 		job2.setNumReduceTasks(1);
 		job2.waitForCompletion(true);
+		long end  = System.currentTimeMillis();
+		System.out.println("Time elapsed = " + (end-start)/ 1000 + " s");
 		
 		
 	}
